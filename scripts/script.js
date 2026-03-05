@@ -1,6 +1,4 @@
-// Display notes
-
-let myNotes = ["hi"," banana", " apfel", " nö"];
+let myNotes = ["hi"];
 let newNotes;
 let noteAdded = false;
 let addedNoteIndex;
@@ -19,12 +17,30 @@ function renderNotes(){
     initFunction();
     if (noteAdded == true) {
         const note = myNotes[addedNoteIndex];
-        document.getElementById('notes-location').innerHTML += `<p><a href="#" onclick="deleteNote(${addedNoteIndex})">${note}</a></p>`; 
+        document.getElementById('notes-location').innerHTML += `
+            <section class="frame">
+                <section class="frame-header">
+                    <h3 class="note-title">Placeholder</h2>
+                </section>
+                <span class="note-text">${note}</span>
+                <section class="frame-footer">
+                    <button class="button-bg" onclick="deleteNote(${addedNoteIndex})">X</button>
+                </section>
+            </section>`; 
         noteAdded = false; 
     } else {
         for (let i = 0; i < myNotes.length; i++) {
             const note = myNotes[i];
-            document.getElementById('notes-location').innerHTML += `<p><a href="#" onclick="deleteNote(${i})">${note}</a></p>`;
+            document.getElementById('notes-location').innerHTML += `
+            <section class="frame">
+                <section class="frame-header">
+                    <h3 class="note-title">Placeholder</h2>
+                </section>
+                <span class="note-text">${note}</span>
+                <section class="frame-footer">
+                    <button class="button-bg" onclick="deleteNote(${i})">X</button>
+                </section>
+            </section>`;
         } 
     }
 }
